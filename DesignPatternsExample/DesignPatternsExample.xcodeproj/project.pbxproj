@@ -16,6 +16,12 @@
 		FC846E332581016D0076BBA7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC846E322581016D0076BBA7 /* BaseViewController.swift */; };
 		FC846E39258101D10076BBA7 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC846E38258101D10076BBA7 /* Command.swift */; };
 		FC846E3D258101E00076BBA7 /* CommandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC846E3C258101E00076BBA7 /* CommandViewController.swift */; };
+		FCD95A3D258BAD4600A7967D /* AbstractFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD95A3C258BAD4600A7967D /* AbstractFactory.swift */; };
+		FCD95A41258BAD6200A7967D /* AbstractFactoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD95A40258BAD6200A7967D /* AbstractFactoryViewController.swift */; };
+		FCD95A47258BAE3300A7967D /* DesignPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD95A46258BAE3300A7967D /* DesignPattern.swift */; };
+		FCD95A4B258BAE3F00A7967D /* DesignPatternFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD95A4A258BAE3F00A7967D /* DesignPatternFactory.swift */; };
+		FCD95A4E258BAE4D00A7967D /* Behavioral.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD95A4D258BAE4D00A7967D /* Behavioral.swift */; };
+		FCD95A51258BAE5900A7967D /* Creational.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD95A50258BAE5900A7967D /* Creational.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +36,12 @@
 		FC846E322581016D0076BBA7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FC846E38258101D10076BBA7 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		FC846E3C258101E00076BBA7 /* CommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandViewController.swift; sourceTree = "<group>"; };
+		FCD95A3C258BAD4600A7967D /* AbstractFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractFactory.swift; sourceTree = "<group>"; };
+		FCD95A40258BAD6200A7967D /* AbstractFactoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractFactoryViewController.swift; sourceTree = "<group>"; };
+		FCD95A46258BAE3300A7967D /* DesignPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignPattern.swift; sourceTree = "<group>"; };
+		FCD95A4A258BAE3F00A7967D /* DesignPatternFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignPatternFactory.swift; sourceTree = "<group>"; };
+		FCD95A4D258BAE4D00A7967D /* Behavioral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Behavioral.swift; sourceTree = "<group>"; };
+		FCD95A50258BAE5900A7967D /* Creational.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creational.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +154,7 @@
 		FC846E23258100B30076BBA7 /* Creational */ = {
 			isa = PBXGroup;
 			children = (
+				FCD95A38258BAD1B00A7967D /* AbstractFactory */,
 			);
 			path = Creational;
 			sourceTree = "<group>";
@@ -166,7 +179,8 @@
 		FC846E2D2581014A0076BBA7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				FC846E2E258101540076BBA7 /* MainViewController.swift */,
+				FCD95A43258BAD7500A7967D /* Models */,
+				FCD95A44258BAD7E00A7967D /* View */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -192,6 +206,50 @@
 			isa = PBXGroup;
 			children = (
 				FC846E3C258101E00076BBA7 /* CommandViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FCD95A38258BAD1B00A7967D /* AbstractFactory */ = {
+			isa = PBXGroup;
+			children = (
+				FCD95A3B258BAD2C00A7967D /* Model */,
+				FCD95A3A258BAD2A00A7967D /* View */,
+			);
+			path = AbstractFactory;
+			sourceTree = "<group>";
+		};
+		FCD95A3A258BAD2A00A7967D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FCD95A40258BAD6200A7967D /* AbstractFactoryViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FCD95A3B258BAD2C00A7967D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FCD95A3C258BAD4600A7967D /* AbstractFactory.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FCD95A43258BAD7500A7967D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FCD95A46258BAE3300A7967D /* DesignPattern.swift */,
+				FCD95A4A258BAE3F00A7967D /* DesignPatternFactory.swift */,
+				FCD95A4D258BAE4D00A7967D /* Behavioral.swift */,
+				FCD95A50258BAE5900A7967D /* Creational.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FCD95A44258BAD7E00A7967D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FC846E2E258101540076BBA7 /* MainViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -269,8 +327,14 @@
 				FC846E27258100EC0076BBA7 /* UIView+addSubviews.swift in Sources */,
 				FC846E022580FFF30076BBA7 /* AppDelegate.swift in Sources */,
 				FC846E2B258100F50076BBA7 /* UIView+addArrangedSubviews.swift in Sources */,
+				FCD95A47258BAE3300A7967D /* DesignPattern.swift in Sources */,
+				FCD95A51258BAE5900A7967D /* Creational.swift in Sources */,
+				FCD95A3D258BAD4600A7967D /* AbstractFactory.swift in Sources */,
+				FCD95A4B258BAE3F00A7967D /* DesignPatternFactory.swift in Sources */,
 				FC846E3D258101E00076BBA7 /* CommandViewController.swift in Sources */,
+				FCD95A4E258BAE4D00A7967D /* Behavioral.swift in Sources */,
 				FC846E2F258101540076BBA7 /* MainViewController.swift in Sources */,
+				FCD95A41258BAD6200A7967D /* AbstractFactoryViewController.swift in Sources */,
 				FC846E39258101D10076BBA7 /* Command.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

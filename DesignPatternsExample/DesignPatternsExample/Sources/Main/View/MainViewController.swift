@@ -7,15 +7,13 @@
 
 import UIKit
 
-enum DesignPattern: Int {
-    case command = 0
-}
-
 final class MainViewController: BaseViewController {
-
-    let designPatterns = ["Command"]
     
+    // UI
     let designPatternsTableView = UITableView()
+    
+    // Property
+    let designPatterns = DesignPatternFactory()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,32 +52,39 @@ extension MainViewController {
 
 extension MainViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return designPatterns.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return designPatterns.make(typeIndex: section).patterns.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = designPatterns[indexPath.row]
+        cell.textLabel?.text = designPatterns.make(typeIndex: indexPath.section).patterns[indexPath.row]
         cell.selectionStyle = .none
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return designPatterns
+            .make(typeIndex: section)
+            .typeName
     }
 }
 
 extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        switch indexPath.row {
-        case DesignPattern.command.rawValue:
-            let commandViewController = CommandViewController()
-            self.navigationController?.pushViewController(commandViewController, animated: true)
-        default:
-            break
-        }
+        let viewController = designPatterns
+            .make(typeIndex: indexPath.section)
+            .makeViewController(designPatternIndex: indexPath.row)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
 }
+
