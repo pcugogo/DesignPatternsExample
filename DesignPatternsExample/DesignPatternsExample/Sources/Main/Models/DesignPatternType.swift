@@ -1,5 +1,5 @@
 //
-//  DesignPattern.swift
+//  DesignPatternFactory.swift
 //  DesignPatternsExample
 //
 //  Created by ChanWook Park on 2020/12/18.
@@ -7,7 +7,8 @@
 
 import UIKit
 
-protocol DesignPattern {
+protocol DesignPatternType {
     var title: String { get }
-    var viewController: UIViewController { get }
+    var patterns: [DesignPattern] { get }
 }
+

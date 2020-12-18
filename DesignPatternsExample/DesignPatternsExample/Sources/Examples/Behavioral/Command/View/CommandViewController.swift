@@ -8,7 +8,7 @@
 import UIKit
 
 final class CommandViewController: BaseViewController {
-
+    
     // Model
     var milk: Milk?
     
@@ -77,31 +77,31 @@ extension CommandViewController {
         
         statusTextLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate(
-         [
-            statusTextLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            statusTextLabel.leftAnchor.constraint(equalTo: view.leftAnchor),
-            statusTextLabel.rightAnchor.constraint(equalTo: view.rightAnchor),
-            statusTextLabel.heightAnchor.constraint(equalToConstant: 30)
-         ]
+            [
+                statusTextLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                statusTextLabel.leftAnchor.constraint(equalTo: view.leftAnchor),
+                statusTextLabel.rightAnchor.constraint(equalTo: view.rightAnchor),
+                statusTextLabel.heightAnchor.constraint(equalToConstant: 30)
+            ]
         )
         
         milkPackLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate(
-         [
-            milkPackLabel.topAnchor.constraint(equalTo: statusTextLabel.bottomAnchor, constant: 30),
-            milkPackLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            milkPackLabel.widthAnchor.constraint(equalToConstant: 100),
-            milkPackLabel.heightAnchor.constraint(equalToConstant: 150)
-         ]
+            [
+                milkPackLabel.topAnchor.constraint(equalTo: statusTextLabel.bottomAnchor, constant: 30),
+                milkPackLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                milkPackLabel.widthAnchor.constraint(equalToConstant: 100),
+                milkPackLabel.heightAnchor.constraint(equalToConstant: 150)
+            ]
         )
         
         tasteChoiceStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate(
-         [
-            tasteChoiceStackView.topAnchor.constraint(equalTo: milkPackLabel.bottomAnchor, constant: 30),
-            tasteChoiceStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            tasteChoiceStackView.widthAnchor.constraint(equalToConstant: 200)
-         ]
+            [
+                tasteChoiceStackView.topAnchor.constraint(equalTo: milkPackLabel.bottomAnchor, constant: 30),
+                tasteChoiceStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                tasteChoiceStackView.widthAnchor.constraint(equalToConstant: 200)
+            ]
         )
         
         tasteChoiceStackView.addArrangedSubviews(
@@ -115,12 +115,12 @@ extension CommandViewController {
         
         drinkButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate(
-         [
-            drinkButton.topAnchor.constraint(equalTo: tasteChoiceStackView.bottomAnchor, constant: 15),
-            drinkButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            drinkButton.widthAnchor.constraint(equalToConstant: 100),
-            drinkButton.heightAnchor.constraint(equalToConstant: 50)
-         ]
+            [
+                drinkButton.topAnchor.constraint(equalTo: tasteChoiceStackView.bottomAnchor, constant: 15),
+                drinkButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                drinkButton.widthAnchor.constraint(equalToConstant: 100),
+                drinkButton.heightAnchor.constraint(equalToConstant: 50)
+            ]
         )
     }
 }
@@ -140,7 +140,7 @@ extension CommandViewController {
     }
     
     @objc func drinkButtonAction() {
-        statusTextLabel.text = milk?.drinking()
+        statusTextLabel.text = milk?.drink()
     }
 }
 

@@ -23,25 +23,50 @@ enum MilkFlavored: String {
         }
     }
 }
-
 protocol MilkCommand {
-    func fill() -> String
-    func drinking() -> String
+    func execute() -> String
 }
-
-final class Milk: MilkCommand {
-    
+final class FillCommand: MilkCommand {
     let flavor: MilkFlavored
     
     init(flavor: MilkFlavored) {
         self.flavor = flavor
     }
     
-    func fill() -> String {
+    func execute() -> String {
         return "fill \(flavor.rawValue) milk."
     }
+}
+
+final class DrinkCommand: MilkCommand {
+    let flavor: MilkFlavored
     
-    func drinking() -> String {
+    init(flavor: MilkFlavored) {
+        self.flavor = flavor
+    }
+    
+    func execute() -> String {
         return "drank \(flavor.rawValue) milk."
+    }
+}
+
+final class Milk {
+    
+    var flavor: MilkFlavored
+    private let fillCommand: FillCommand
+    private let drinkCommand: DrinkCommand
+    
+    init(flavor: MilkFlavored) {
+        self.flavor = flavor
+        self.fillCommand = FillCommand(flavor: flavor)
+        self.drinkCommand = DrinkCommand(flavor: flavor)
+    }
+    
+    func fill() -> String {
+        return fillCommand.execute()
+    }
+    
+    func drink() -> String {
+        return drinkCommand.execute()
     }
 }

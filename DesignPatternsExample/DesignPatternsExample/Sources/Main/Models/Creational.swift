@@ -7,9 +7,12 @@
 
 import UIKit
 
-enum CreationalDesignPattern: Int, DesignPatternViewControllerInitalizable {
-    case abstractFactory = 0
+enum CreationalDesignPattern: String, DesignPattern {
+    case abstractFactory = "AbstractFactory"
     
+    var title: String {
+        self.rawValue
+    }
     var viewController: UIViewController {
         switch self {
         case .abstractFactory:
@@ -18,12 +21,8 @@ enum CreationalDesignPattern: Int, DesignPatternViewControllerInitalizable {
     }
 }
 
-struct Creational: DesignPattern {
-    let typeName = "Creational"
-    let patterns = ["AbstractFactory"]
+struct Creational: DesignPatternType {
     
-    func makeViewController(designPatternIndex: Int) -> UIViewController {
-        let pattern = CreationalDesignPattern(rawValue: designPatternIndex)!
-        return pattern.viewController
-    }
+    let title: String = "Creational"
+    let patterns: [DesignPattern] = [CreationalDesignPattern.abstractFactory]
 }

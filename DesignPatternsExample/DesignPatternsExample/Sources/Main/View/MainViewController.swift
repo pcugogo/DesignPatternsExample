@@ -13,7 +13,7 @@ final class MainViewController: BaseViewController {
     let designPatternsTableView = UITableView()
     
     // Property
-    let designPatterns = DesignPatternFactory()
+    let model = DesignPatternModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,33 +53,33 @@ extension MainViewController {
 extension MainViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return designPatterns.count
+        return model.patternTypes.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return designPatterns.make(typeIndex: section).patterns.count
+        return model.patternTypes[section].patterns.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = designPatterns.make(typeIndex: indexPath.section).patterns[indexPath.row]
+        cell.textLabel?.text = model
+            .patternTypes[indexPath.section]
+            .patterns[indexPath.row].title
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return designPatterns
-            .make(typeIndex: section)
-            .typeName
+        return model.patternTypes[section].title
     }
 }
 
 extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = designPatterns
-            .make(typeIndex: indexPath.section)
-            .makeViewController(designPatternIndex: indexPath.row)
+        let viewController = model
+            .patternTypes[indexPath.section]
+            .patterns[indexPath.row].viewController
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -87,4 +87,3 @@ extension MainViewController: UITableViewDelegate {
         return 50
     }
 }
-

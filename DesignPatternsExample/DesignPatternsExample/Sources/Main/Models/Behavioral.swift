@@ -7,9 +7,12 @@
 
 import UIKit
 
-enum BehavioralDesignPattern: Int, DesignPatternViewControllerInitalizable {
-    case command = 0
+enum BehavioralDesignPattern: String, DesignPattern {
+    case command = "Command"
     
+    var title: String {
+        self.rawValue
+    }
     var viewController: UIViewController {
         switch self {
         case .command:
@@ -18,13 +21,8 @@ enum BehavioralDesignPattern: Int, DesignPatternViewControllerInitalizable {
     }
 }
 
-struct Behavioral: DesignPattern {
+struct Behavioral: DesignPatternType {
     
-    let typeName = "Behavioral"
-    let patterns = ["Command"]
-    
-    func makeViewController(designPatternIndex: Int) -> UIViewController {
-        let pattern = BehavioralDesignPattern(rawValue: designPatternIndex)!
-        return pattern.viewController
-    }
+    let title: String = "Behavioral"
+    let patterns: [DesignPattern] = [BehavioralDesignPattern.command]
 }
