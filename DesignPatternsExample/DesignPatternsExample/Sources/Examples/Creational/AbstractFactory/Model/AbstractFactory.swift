@@ -9,6 +9,7 @@ import Foundation
 
 // Abstact Product
 protocol Coffee {
+    var name: String { get }
     var ingredient: String { get }
 }
 
@@ -19,10 +20,13 @@ protocol CoffeeMakable {
 
 // Abstact Product
 struct Americano: Coffee {
+    var name = "Ameriacano"
     var ingredient = "Water"
 }
+
 // Abstact Product
 struct Latte: Coffee {
+    var name = "Latte"
     var ingredient = "Milk"
 }
 
