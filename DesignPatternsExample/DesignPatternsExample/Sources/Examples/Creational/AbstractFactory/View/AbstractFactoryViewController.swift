@@ -7,16 +7,44 @@
 
 import UIKit
 
-final class AbstractFactoryViewController: UIViewController {
-
-    // Client
-    let americano = CoffeeFactory.americano.make()
-    let latte = CoffeeFactory.americano.make()
+final class AbstractFactoryViewController: BaseViewController {
+    
+    let messageLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("This coffee contains \(americano.ingredient).")
-        print("This coffee contains \(latte.ingredient).")
+        // Client
+        let americano = CoffeeFactory.americano.make()
+        let latte = CoffeeFactory.latte.make()
+        let americanoDescription = "\(americano.name) contains \(americano.ingredient)."
+        let latteDescription = "\(latte.name) contains \(latte.ingredient)."
+        
+        messageLabel.text = "\(americanoDescription)\n\(latteDescription)"
+    }
+}
+
+extension AbstractFactoryViewController {
+    override func setAttributes() {
+        self.view.backgroundColor = .white
+        
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+    }
+}
+
+extension AbstractFactoryViewController {
+    override func layoutViews() {
+        self.view.addSubview(messageLabel)
+        
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate(
+         [
+            messageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            messageLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            messageLabel.widthAnchor.constraint(equalTo: view.widthAnchor),
+            messageLabel.heightAnchor.constraint(equalToConstant: 250)
+         ]
+        )
     }
 }
